@@ -1,0 +1,3 @@
+export const INPUT_VALUE = 'INPUT_VALUE';
+export const SELECT_VALUE = 'SELECT_VALUE';
+export const FETCHING_BOOKS = 'FETCHING_BOOKS';
