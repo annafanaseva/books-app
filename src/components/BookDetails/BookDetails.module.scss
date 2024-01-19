@@ -1,0 +1,61 @@
+.header {
+  width: 100%;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+
+  .imageContainer {
+    position: relative;
+    flex: 0 0 200px;
+    margin-right: 20px;
+
+    img {
+      width: 300px;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .country {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      color: white;
+      padding: 8px;
+      background: #c3bd87;
+      border-radius: 50%;
+      font-weight: 500;
+    }
+  }
+
+  .infoContainer {
+    flex: 1;
+    margin-left: 40px;
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .backButton {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.iframeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  iframe {
+    border: none;
+    width: 60%;
+    height: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}

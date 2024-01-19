@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import Button from '../../components/Button';
+import Button from '../Button';
 import DefaultImg from '../../assets/img/default-book.png';
 import { setChosenBook } from '../../store/actions';
 
@@ -32,7 +32,8 @@ const Bookcard = (props) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={() => setFetchingBook(book)}
-        className={`${styles.card} ${isHovered ? styles.hovered : ''}`}>
+        className={`${styles.card} ${isHovered ? styles.hovered : ''}`}
+      >
         <div className={styles.country}>{saleInfo?.country}</div>
         <img
           className={styles.cardImg}

@@ -22,4 +22,19 @@ store.dispatch({
   payload: { books: [] }
 });
 
+store.dispatch({
+  type: actions.CHOSEN_BOOK,
+  payload: { book: [] }
+});
+
+store.dispatch({
+  type: actions.IS_AUTHORISED,
+  payload: { isAuthorised: false }
+});
+
+store.dispatch({
+  type: actions.RECOMENDATIONS,
+  payload: { recomandations: [] }
+});
+
 export default store;

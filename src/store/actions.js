@@ -13,3 +13,24 @@ export const setFetchingBooks = (books) => ({
     books: books
   }
 });
+
+export const setChosenBook = (book) => ({
+  type: actions.CHOSEN_BOOK,
+  payload: {
+    book: book
+  }
+});
+
+export const setAuthorisation = (isAuthorised) => ({
+  type: actions.IS_AUTHORISED,
+  payload: {
+    isAuthorised: isAuthorised
+  }
+});
+
+export const setRecomendedBooks = (recomendations) => ({
+  type: actions.RECOMENDATIONS,
+  payload: {
+    recomendations: recomendations
+  }
+});

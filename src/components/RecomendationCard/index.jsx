@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import Button from '../../components/Button';
 import DefaultImg from '../../assets/img/default-book.png';
 import { setChosenBook } from '../../store/actions';
 
 import styles from './BookCard.module.scss';
 
-const Bookcard = (props) => {
+const RecomendationCard = (props) => {
   const { book } = props;
   const { volumeInfo, saleInfo } = book;
   const [isHovered, setIsHovered] = useState(false);
@@ -42,12 +41,10 @@ const Bookcard = (props) => {
 
         <div className={styles.info}>
           <p className={styles.cardTitle}>{volumeInfo.title || 'Заголовок отсутствует'}</p>
-
-          <Button title="Подробнее" />
         </div>
       </div>
     </Link>
   );
 };
 
-export default Bookcard;
+export default RecomendationCard;

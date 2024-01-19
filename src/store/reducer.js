@@ -11,6 +11,15 @@ export default function reducer(state = [], action) {
     case actions.FETCHING_BOOKS:
       return { ...state, books: action.payload.books };
 
+    case actions.CHOSEN_BOOK:
+      return { ...state, book: action.payload.book };
+
+    case actions.IS_AUTHORISED:
+      return { ...state, isAuthorised: action.payload.isAuthorised };
+
+    case actions.RECOMENDATIONS:
+      return { ...state, recomendations: action.payload.recomendations };
+
     default:
       return state;
   }
