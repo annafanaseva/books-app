@@ -11,11 +11,6 @@ import styles from './BookDetails.module.scss';
 const BooksDetails = () => {
   const chosenBook = useSelector((state) => state.book);
   const { volumeInfo, saleInfo } = chosenBook;
-  //const [textVisability, setTextVisability] = useState(false);
-
-  // const toggleTextVisibility = () => {
-  //   setTextVisability(!textVisability);
-  // };
 
   return (
     <>
@@ -38,14 +33,13 @@ const BooksDetails = () => {
           <Link to="/" className={styles.backButton}>
             <Button title="Назад" />
           </Link>
+
           <p>Название: {volumeInfo?.title}</p>
           {volumeInfo.authors && <p>Автор: {volumeInfo?.authors}</p>}
           {volumeInfo.categories && <p>Категория: {volumeInfo?.categories}</p>}
           <p>Описание: {volumeInfo?.description}</p>
           {volumeInfo.pageCount && <p>Количество страниц: {volumeInfo?.pageCount}</p>}
           <p>Дата издания: {new Date(volumeInfo?.publishedDate).toLocaleDateString()}</p>
-
-          {/* <Button onClick={toggleTextVisibility} title="Прочитать" /> */}
         </div>
       </div>
 
@@ -55,8 +49,7 @@ const BooksDetails = () => {
           scrolling="no"
           src={`${volumeInfo.previewLink}&output=embed`}
           width="60%"
-          height="800px"
-        ></iframe>
+          height="800px"></iframe>
       </div>
     </>
   );

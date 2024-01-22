@@ -32,7 +32,8 @@ const Bookcard = (props) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={() => setFetchingBook(book)}
-        className={`${styles.card} ${isHovered ? styles.hovered : ''}`}>
+        className={`${styles.card} ${isHovered ? styles.hovered : ''}`}
+      >
         <div className={styles.country}>{saleInfo?.country}</div>
         <img
           className={styles.cardImg}

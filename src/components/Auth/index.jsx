@@ -12,9 +12,6 @@ const Auth = ({ closeAuthPopup }) => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
-  const login = 'ann';
-  const personPassword = '1';
-
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
@@ -25,10 +22,12 @@ const Auth = ({ closeAuthPopup }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username === login && password === personPassword) {
+    /*     if (username === login && password === personPassword) {
       dispatch(setAuthorisation(true));
       closeAuthPopup();
-    }
+    } */
+    dispatch(setAuthorisation(true));
+    closeAuthPopup();
   };
 
   return (

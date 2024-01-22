@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 import NotFound from '../pages/NotFound';
-import Homepage from '../pages/HomePage';
+import Homepage from '../pages/Homepage';
 import Authpage from '../pages/AuthPage';
 import BookDescriptionPage from '../pages/BookDescriptionPage';
 

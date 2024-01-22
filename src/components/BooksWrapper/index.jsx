@@ -12,22 +12,32 @@ import SearchField from '../../components/SearchField';
 import styles from './BooksWrapper.module.scss';
 
 const BooksWrapper = () => {
-  const [books, setBooks] = useState([]);
-  const [recomendations, setRecomendations] = useState([]);
   const [maxResults, setMaxResults] = useState(MAX_RESULTS);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+
   const dispatch = useDispatch();
 
   const isAuthorised = useSelector((state) => state.isAuthorised);
   const inputValue = useSelector((state) => state.inputValue);
-  const selectValue = useSelector((state) => state.selectValue);
+  const [currentInput, setCurrentInput] = useState(inputValue);
+  const books = useSelector((state) => state.books);
 
   useEffect(() => {
-    fetchData();
-  }, [inputValue, maxResults, selectValue]);
+    if (books.length < 1 || inputValue !== currentInput) {
+      fetchData();
+      setCurrentInput(inputValue);
+    }
+  }, [inputValue, maxResults]);
+
+  useEffect(() => {
+    if (isAuthorised) {
+      fetchRecomendations();
+    }
+  }, [isAuthorised]);
 
   const fetchData = async () => {
+    console.log('fetchData');
     setIsLoading(true);
     try {
       const res = await fetch(
@@ -35,8 +45,7 @@ const BooksWrapper = () => {
       );
       const json = await res.json();
 
-      dispatch(setFetchingBooks(books));
-      json.items && setBooks([...json.items]);
+      dispatch(setFetchingBooks(json.items));
       setIsLoading(false);
       setIsError(false);
     } catch (e) {
@@ -48,18 +57,14 @@ const BooksWrapper = () => {
   const fetchRecomendations = async () => {
     try {
       const res = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=js&startIndex=0&maxResults=6&key=${API_URL}`
+        `https://www.googleapis.com/books/v1/volumes?q=js&startIndex=0&maxResults=9&key=${API_URL}`
       );
       const json = await res.json();
-
-      dispatch(setRecomendedBooks(recomendations));
-      json.items && setRecomendations([...json.items]);
+      dispatch(setRecomendedBooks(json.items));
     } catch (e) {
       setIsError(true);
     }
   };
-
-  isAuthorised && fetchRecomendations();
 
   const loadMore = () => {
     setMaxResults(maxResults + MAX_RESULTS);
